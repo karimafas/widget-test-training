@@ -12,8 +12,8 @@ class PickedWorkout extends StatelessWidget {
     return SizedBox(
       height: 150,
       child: Consumer<WorkoutNotifier>(builder: (context, data, index) {
-        return data.chosenWorkout != null
-            ? Text('You have chosen:\n' + data.chosenWorkout.name,
+        return data.pickedIndex != -1
+            ? Text('You have chosen:\n' + data.chosenWorkouts[data.pickedIndex].name,
                 textAlign: TextAlign.center, key: const Key('PickedWorkout'))
             : Container();
       }),

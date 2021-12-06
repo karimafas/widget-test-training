@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:withu_test_training/models/workout.dart';
+import 'package:withu_test_training/services/maths.dart';
 
 class WorkoutNotifier extends ChangeNotifier {
   List<Workout> workouts = [
@@ -14,15 +15,10 @@ class WorkoutNotifier extends ChangeNotifier {
 
   List<Workout> chosenWorkouts = [];
 
-  var chosenWorkout;
-
-  random(min, max) {
-    var rn = Random();
-    return min + rn.nextInt(max - min);
-  }
+  var pickedIndex = -1;
 
   Workout randomWorkout() {
-    int index = random(0, workouts.length);
+    int index = Maths.random(0, workouts.length);
     return workouts[index];
   }
 
@@ -33,7 +29,7 @@ class WorkoutNotifier extends ChangeNotifier {
   }
 
   pickWorkout(index) {
-    chosenWorkout = chosenWorkouts[index];
+    pickedIndex = index;
     notifyListeners();
   }
 }
