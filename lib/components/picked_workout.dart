@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:withu_test_training/components/animations.dart';
 import 'package:withu_test_training/services/workout_notifier.dart';
@@ -26,7 +27,7 @@ class PickedWorkout extends StatelessWidget {
                       'You have chosen:\n' +
                           data.chosenWorkouts[data.pickedIndex].name,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(color: Colors.white),
+                      style: GoogleFonts.montserrat(color: Colors.white),
                       key: const Key('PickedWorkout')),
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:withu_test_training/components/animations.dart';
 import 'package:withu_test_training/models/workout.dart';
@@ -31,7 +32,7 @@ class _WorkoutCardState extends State<WorkoutCard> {
             .pickWorkout(widget.index),
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 10),
-          width: 120,
+          width: 140,
           decoration: BoxDecoration(
               gradient: const LinearGradient(
                   begin: Alignment.topCenter,
@@ -47,7 +48,7 @@ class _WorkoutCardState extends State<WorkoutCard> {
                   flex: 2,
                   child: Text(
                     widget.workout.name,
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                    style: GoogleFonts.montserrat(color: Colors.white, fontSize: 18),
                     textAlign: TextAlign.start,
                   ),
                 ),
@@ -67,14 +68,14 @@ class _WorkoutCardState extends State<WorkoutCard> {
                   flex: 1,
                   child: Text(
                     widget.workout.type,
-                    style: const TextStyle(color: Colors.white, fontSize: 10),
+                    style: GoogleFonts.montserrat(color: Colors.white, fontSize: 10),
                   ),
                 ),
                 Expanded(
                   flex: 1,
                   child: Text(
                     widget.workout.duration.toString() + ' min.',
-                    style: const TextStyle(color: Colors.white, fontSize: 10),
+                    style: GoogleFonts.montserrat(color: Colors.white, fontSize: 10),
                   ),
                 ),
               ],

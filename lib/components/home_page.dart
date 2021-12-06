@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                   height: 120,
                   child: ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     itemCount: data.chosenWorkouts.length,
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
