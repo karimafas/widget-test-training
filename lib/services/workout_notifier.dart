@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:withu_test_training/models/workout.dart';
 import 'package:withu_test_training/services/maths.dart';
