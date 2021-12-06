@@ -19,12 +19,17 @@ class WorkoutNotifier extends ChangeNotifier {
 
   Workout randomWorkout() {
     int index = Maths.random(0, workouts.length);
+
     return workouts[index];
   }
 
   generateWorkouts() {
-    for (int i = 0; i < 3; i++) {
-      chosenWorkouts.add(randomWorkout());
+    while (chosenWorkouts.length < 3) {
+      Workout workout = randomWorkout();
+
+      if (!chosenWorkouts.contains(workout)) {
+        chosenWorkouts.add(workout);
+      }
     }
   }
 

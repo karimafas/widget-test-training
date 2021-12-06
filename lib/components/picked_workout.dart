@@ -9,14 +9,21 @@ class PickedWorkout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 150,
-      child: Consumer<WorkoutNotifier>(builder: (context, data, index) {
-        return data.pickedIndex != -1
-            ? Text('You have chosen:\n' + data.chosenWorkouts[data.pickedIndex].name,
-                textAlign: TextAlign.center, key: const Key('PickedWorkout'))
-            : Container();
-      }),
-    );
+    return Consumer<WorkoutNotifier>(builder: (context, data, index) {
+      return data.pickedIndex != -1
+          ? Container(
+            width: 200,
+            height: 80,
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(.5),
+              borderRadius: BorderRadius.circular(16)
+            ),
+            child: Center(
+              child: Text('You have chosen:\n' + data.chosenWorkouts[data.pickedIndex].name,
+                  textAlign: TextAlign.center, style: const TextStyle(color: Colors.white), key: const Key('PickedWorkout')),
+            ),
+          )
+          : Container(height: 80);
+    });
   }
 }

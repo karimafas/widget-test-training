@@ -34,11 +34,20 @@ class WorkoutCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: Text(
                   workout.name,
                   style: const TextStyle(color: Colors.white, fontSize: 18),
                   textAlign: TextAlign.start,
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(height: 1, width: 80, color: Colors.grey.withOpacity(.5)),
+                  ],
                 ),
               ),
               Expanded(
