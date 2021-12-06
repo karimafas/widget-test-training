@@ -65,3 +65,50 @@ class _SlideYFadeInState extends State<SlideYFadeIn>
     );
   }
 }
+
+class FadeIn extends StatefulWidget {
+  const FadeIn(
+      {Key? key,
+      this.index,
+      required this.child,
+      this.fadeDuration,
+      this.delayDuration})
+      : super(key: key);
+
+  @override
+  _FadeInState createState() => _FadeInState();
+
+  final int? index;
+  final Widget child;
+  final int? fadeDuration;
+  final int? delayDuration;
+}
+
+class _FadeInState extends State<FadeIn>
+    with TickerProviderStateMixin {
+  late AnimationController _fadeAnimationController;
+
+  @override
+  void initState() {
+    _fadeAnimationController = AnimationController(
+        vsync: this,
+        duration: Duration(milliseconds: widget.fadeDuration ?? 700));
+
+    Future.delayed(Duration(
+            milliseconds:
+                widget.delayDuration ?? 0 + ((widget.index ?? 0) * 150)))
+        .then((value) {
+      _fadeAnimationController.forward();
+    });
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeTransition(
+        opacity: _fadeAnimationController
+            .drive(CurveTween(curve: Curves.easeInOutQuad)),
+        child: widget.child);
+  }
+}

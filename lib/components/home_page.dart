@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
         body: Consumer<WorkoutNotifier>(builder: (context, data, index) {
       return Center(
         child: Padding(
@@ -29,15 +30,18 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(
-                  height: 120,
+                  height: 100,
                   child: ListView.builder(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     itemCount: data.chosenWorkouts.length,
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return WorkoutCard(
-                          workout: data.chosenWorkouts[index], index: index);
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: WorkoutCard(
+                            workout: data.chosenWorkouts[index], index: index),
+                      );
                     },
                   )),
               const PickedWorkout()

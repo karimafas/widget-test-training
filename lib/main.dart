@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:withu_test_training/components/animations.dart';
+import 'package:withu_test_training/components/background.dart';
 import 'package:withu_test_training/components/home_page.dart';
 import 'package:withu_test_training/services/workout_notifier.dart';
 
@@ -9,12 +11,10 @@ void main() {
 }
 
 class CustomScrollBehavior extends MaterialScrollBehavior {
-  // Override behavior methods and getters like dragDevices
   @override
   Set<PointerDeviceKind> get dragDevices => {
         PointerDeviceKind.touch,
         PointerDeviceKind.mouse,
-        // etc.
       };
 }
 
@@ -27,12 +27,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       scrollBehavior: CustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
-      title: 'Testing Demo',
+      title: 'Test Training',
       theme: ThemeData(
+        backgroundColor: Colors.black,
         primarySwatch: Colors.blue,
       ),
       home: ChangeNotifierProvider(
-          create: (_) => WorkoutNotifier(), child: const HomePage()),
+          create: (_) => WorkoutNotifier(),
+          child: Stack(
+            children: [
+              Container(color: Colors.black.withOpacity(0.85)),
+              const FadeIn(delayDuration: 1000, fadeDuration: 3000, child: Background()),
+              const HomePage(),
+            ],
+          )),
     );
   }
 }
